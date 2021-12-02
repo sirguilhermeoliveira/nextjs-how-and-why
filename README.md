@@ -12,7 +12,7 @@ A explanatory project with a demonstration of all the nextjs most used features(
       
       Consume API for examples(https://swapi.dev/api)
       
-# Others not so used:
+# Others:
       
       SEO(Search Engines Optimization)
       
