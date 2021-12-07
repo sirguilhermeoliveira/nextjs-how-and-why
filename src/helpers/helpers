@@ -1,0 +1,6 @@
+Este diretório armazena classes contendo 
+funcionalidades que aparecem em vários locais do software. 
+Visa principalmente a reutilização de código, centralizando 
+funções que seriam implementadas de forma idêntica em várias classes, 
+deixando o código mais limpo, respeitando os conceitos da 
+manutenibilidade.

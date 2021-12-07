@@ -1,0 +1,4 @@
+Responsável por armazenar classes de conexão com o servidor da API
+ ou com o Storage da aplicação.
+
+ Example: BASE_URL;

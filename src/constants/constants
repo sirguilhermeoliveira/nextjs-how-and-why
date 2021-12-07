@@ -1,0 +1,6 @@
+Este diretório,
+ irá armazenar classes para definição de atributos estáticos do nosso 
+ software, como por exemplo: categorias, nome de cidades, estados, 
+ entre outros valores predefinidos. De forma mais clara,
+  todos valores que não poderão sofrer modificação pelo lado do usuário 
+  ou API.
