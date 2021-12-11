@@ -10,4 +10,11 @@ export const Container = styled.div`
   padding-top: 25px;
   font-size: 24px;
   font-style: italic;
+  text-align: center;
+`;
+
+export const Return = styled.div`
+  color: #cac531;
+  color: -webkit-linear-gradient(to right, #cac531, #f3f9a7);
+  color: linear-gradient(to right, #cac531, #f3f9a7);
 `;

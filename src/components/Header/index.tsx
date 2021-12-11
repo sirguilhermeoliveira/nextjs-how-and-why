@@ -1,15 +1,22 @@
-import { Container } from './styled';
+import { Container, Return } from './styled';
 import { Fragment } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <Fragment>
       <Container>
-        NextJS How and Why -
-        <Link href='/Home'>
-          <a> HOME</a>
-        </Link>
+        <div>NextJS How and Why</div>
+        <Return>
+          {router.pathname === '/Home' ? null : (
+            <Link href='/Home'>
+              <a> Click to Return</a>
+            </Link>
+          )}
+        </Return>
       </Container>
     </Fragment>
   );

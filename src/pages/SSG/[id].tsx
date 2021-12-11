@@ -1,9 +1,7 @@
 import { playlist } from '../../data';
 import Image from 'next/image';
-
-const myLoader = ({ src, width, quality }: any) => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 100}`;
-};
+import { ImageCover } from './styled';
+import logo from '../../assets/1.jpg';
 
 export const getStaticProps = async ({ params }: any) => {
   const playlistList = playlist.filter((p) => p.id.toString() === params.id);
@@ -23,19 +21,12 @@ export const getStaticPaths = async () => {
 };
 
 export default function SSG({ song }: any) {
+  let albumCover = `/../../assets/1.jpg`;
   return (
     <div>
-      <div>{song.name}</div>
-      <div>{song.artist}</div>
-      <div>{song.albumCoverUrl}</div>
-      <Image
-        loader={myLoader}
-        src={song.albumCoverUrl}
-        alt='Picture of the author'
-        width={500}
-        height={500}
-        layout='responsive'
-      />
+      <div>Artist: {song.artist}</div>
+      <div>Album: {song.name}</div>
+      <ImageCover src={albumCover} alt='Album Cover' />
     </div>
   );
 }
