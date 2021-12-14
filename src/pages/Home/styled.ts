@@ -10,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  border: 1px solid black;
   margin-bottom: 20px;
 `;
 

@@ -11,8 +11,8 @@ const Header = () => {
       <Container>
         <div>NextJS How and Why</div>
         <Return>
-          {router.pathname === '/Home' ? null : (
-            <Link href='/Home'>
+          {router.pathname === '/' ? null : (
+            <Link href='/'>
               <a> Click to Return</a>
             </Link>
           )}

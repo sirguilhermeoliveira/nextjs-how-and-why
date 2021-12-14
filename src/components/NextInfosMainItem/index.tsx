@@ -1,5 +1,5 @@
-import { Title, Description, LinkContainer } from './styled';
-import { Fragment, useState } from 'react';
+import { Title, Description, LinkContainer, Container } from './styled';
+import { useState } from 'react';
 import Link from 'next/link';
 
 const NextInfosMainItem = ({ title, description, seeMore, link }: any) => {
@@ -8,7 +8,7 @@ const NextInfosMainItem = ({ title, description, seeMore, link }: any) => {
   let linkUrl = `/${link}`;
 
   return (
-    <Fragment>
+    <Container>
       {mainInfosOpen ? (
         <div>
           <Title onClick={() => setMainInfosOpen(false)}>- {title}</Title>
@@ -22,7 +22,7 @@ const NextInfosMainItem = ({ title, description, seeMore, link }: any) => {
       ) : (
         <Title onClick={() => setMainInfosOpen(true)}>+ {title}</Title>
       )}
-    </Fragment>
+    </Container>
   );
 };
 
