@@ -24,6 +24,7 @@ export default function SSG({ song }: any) {
 
   return (
     <Container>
+      <Artist>[Print do Código]</Artist>
       <Image src={linkHelper} alt={song.name} width={300} height={300} />
       <AlbumName>Album Name: {song.name}</AlbumName>
       <Artist>Artist: {song.artist}</Artist>

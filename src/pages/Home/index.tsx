@@ -6,6 +6,7 @@ import Head from 'next/head';
 
 const Home: NextPage = () => {
   const [mainOpen, setMainOpen] = useState(false);
+  const [additionalOpen, setAdditionalOpen] = useState(false);
 
   let main = [
     {
@@ -26,14 +27,21 @@ const Home: NextPage = () => {
     },
     {
       id: 3,
-      title: 'Custom Error Page',
-      description:
-        'Você pode criar página de erro customizadas no NextJS, criando utilizando na pasta pages, pages/500.tsx ou pages/404.tsx, como o exemplo abaixo.',
+      title: 'Autenticação no NextJS',
+      description: '',
       seeMore: true,
-      link: 'undefined',
+      link: 'Authentication',
     },
     {
       id: 4,
+      title: 'Custom Error Page',
+      description:
+        'Você pode criar página de erro customizadas no NextJS, criando utilizando na pasta pages, qualquer link quebrado ou que não exista vai parar no erro específicado(pages/500.tsx ou pages/404.tsx por exemplo), como o exemplo abaixo.',
+      seeMore: true,
+      link: '404',
+    },
+    {
+      id: 5,
       title: 'SEO - Search Engines Optimization',
       description:
         'Serve para seu site aparecer nos resultados de busca, o nextJS faz isso utilizando o next/head, que consiste basicamente em você coloca em cada página que você quer que tenha um SEO para ajudar a página a ser encontrada. Como demonstra no exemplo abaixo.',
@@ -41,20 +49,28 @@ const Home: NextPage = () => {
       link: 'SEO',
     },
     {
-      id: 7,
-      title: 'Next/Image',
+      id: 6,
+      title: 'Otimização de Imagem',
       description:
-        'O NextJS otimizou o uso de imagens usando a next/image como utilizado no exemplo abaixo.',
+        'O NextJS otimizou o uso de imagens usando a next/image como utilizado, no exemplo abaixo é possível ver o uso do mesmo para setar um width/height padrão e usar o layout para trabalhar imagens que você não sabe ao certo o tamanho, usando o layout=fill ou layout=responsive, no exemplo abaixo demonstrados.',
       seeMore: true,
-      link: '',
+      link: 'imageExample',
+    },
+    {
+      id: 7,
+      title: 'Otimização de fonte',
+      description:
+        'Por padrão, o NextJS automaticamente coloca inline fonte CSS quando está construindo a página. Você pode adicionar uma fonte em uma página específica no next/head, ou uma fonte global criando um custom component pages/_document.js e colocando lá. Como no exemplo abaixo.',
+      seeMore: true,
+      link: 'fontOtimization',
     },
     {
       id: 8,
-      title: 'Next/Analytics',
+      title: 'Otimização de script',
       description:
-        'Ao invés de mensusar as analytics pelo laptop, o NextJS Analytics coleta web vitals do atual dispositivo o visitante está usando. Como demonstrado no exemplo abaixo.',
+        'Por padrão, o NextJS automaticamente coloca inline fonte CSS quando está construindo a página. Você pode adicionar uma fonte em uma página específica no next/head, ou uma fonte global criando um custom component pages/_document.js e colocando lá. Como no exemplo abaixo.',
       seeMore: true,
-      link: '',
+      link: 'fontOtimization',
     },
     {
       id: 9,
@@ -66,14 +82,6 @@ const Home: NextPage = () => {
     },
     {
       id: 10,
-      title: 'Otimização de fonte',
-      description:
-        'Por padrão, o NextJS automaticamente coloca inline fonte CSS quando está construindo a página. Você pode adicionar uma fonte em uma página específica no next/head, ou uma fonte global criando um custom component pages/_document.js e colocando lá. Como no exemplo abaixo.',
-      seeMore: true,
-      link: 'fontOtimization',
-    },
-    {
-      id: 11,
       title: 'Next/Link',
       description:
         'Transações do lado do cliente entre rotas podem ser acessadas utilizando import Link from next/link, <Link href"/exemplo"></Link> como utilizamos em todos exemplos desse projeto.',
@@ -81,7 +89,7 @@ const Home: NextPage = () => {
       link: '',
     },
     {
-      id: 12,
+      id: 11,
       title: 'Next/Router',
       description:
         'Se você quiser acessar o objeto router dentro de uma função componente no seu app você pode usar o useRouter. Como no exemplo abaixo. Observação: é possível usar também o router.push quando o <Link></Link> não for suficiente.',
@@ -101,6 +109,52 @@ const Home: NextPage = () => {
       title: 'Finalizações e considerações',
       description:
         'O objetivo desse projeto era mostrar as principais funcionalidades que usamos, tem outras que merecem o destaque principalmente a API Routes. Porém não utilizamos ainda pelas suas limitações, coloquei apenas as que achei considerei essenciais para o nosso trabalho. ',
+      seeMore: false,
+      link: '',
+    },
+  ];
+
+  let additional = [
+    {
+      id: 1,
+      title: 'O que são os Adicionais',
+      description:
+        'São funcionalidades do NextJS que existem mas não são tão comuns.',
+      seeMore: false,
+      link: '',
+    },
+    {
+      id: 2,
+      title: 'API Routes',
+      description: '',
+      seeMore: true,
+      link: '',
+    },
+    {
+      id: 3,
+      title: 'Dynamic Imports',
+      description: '',
+      seeMore: true,
+      link: '',
+    },
+    {
+      id: 4,
+      title: 'Analytics',
+      description: '',
+      seeMore: false,
+      link: '',
+    },
+    {
+      id: 5,
+      title: 'AMP Support',
+      description: '',
+      seeMore: false,
+      link: '',
+    },
+    {
+      id: 6,
+      title: 'SWR',
+      description: '',
       seeMore: false,
       link: '',
     },
@@ -133,6 +187,32 @@ const Home: NextPage = () => {
         <MainContainer>
           <MainTitle onClick={() => setMainOpen(true)}>
             + Principais Funcionalidades
+          </MainTitle>
+        </MainContainer>
+      )}
+
+      {additionalOpen ? (
+        <MainContainer>
+          <MainTitle onClick={() => setAdditionalOpen(false)}>
+            - Adicionais
+          </MainTitle>
+          {additional &&
+            additional.map((additional) => {
+              return (
+                <NextInfosMain
+                  key={additional.id}
+                  title={additional.title}
+                  description={additional.description}
+                  seeMore={additional.seeMore}
+                  link={additional.link}
+                />
+              );
+            })}
+        </MainContainer>
+      ) : (
+        <MainContainer>
+          <MainTitle onClick={() => setAdditionalOpen(true)}>
+            + Adicionais
           </MainTitle>
         </MainContainer>
       )}
