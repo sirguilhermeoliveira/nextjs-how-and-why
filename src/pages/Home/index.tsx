@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import NextInfosMain from '../../components/NextInfosMainItem';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { Container, MainContainer, MainTitle } from './styled';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   const [mainOpen, setMainOpen] = useState(false);
@@ -19,41 +20,25 @@ const Home: NextPage = () => {
       id: 2,
       title: 'Páginas no NextJS - SSG e SSR',
       description:
-        'No NextJS todo arquivo dentro da pasta pages é associado a uma rota baseada no nome do arquivo /pages/NomedoArquivo, é instantaneamente NomedoArquivo o nome da página. Além disso o NextJS também suporta páginas com rotas dinâmicas, por exemplo se você criar uma página em pages/mypage/[id].tsx, ela vai ser acessível pelo mypage/1, mypage/2 e etc. Você pode usar outras variáveis para tal, não necessariamente o id. Para fazer tal você precisa consumir um endpoint específico sua utilizando getStaticProps e getStaticPaths. Extra: Para fazer uma rota autenticada usuário nos fazemos a autorização necessária para entrar ser na própria página e o NextJS fornece a página de erro(404, 500) para erros que pode ser editável também.',
+        'No NextJS todo arquivo dentro da pasta pages é associado a uma rota baseada no nome do arquivo /pages/NomedoArquivo, é instantaneamente NomedoArquivo o nome da página. Além disso o NextJS também suporta páginas com rotas dinâmicas, por exemplo se você criar uma página em pages/mypage/[id].tsx, ela vai ser acessível pelo mypage/1, mypage/2 e etc. Você pode usar outras variáveis, não necessariamente o id. Para fazer tal você precisa consumir um endpoint específico sua utilizando getStaticProps e getStaticPaths. Extra: Para fazer uma rota autenticada de usuário nos fazemos a autorização necessária para entrar ser na própria página e o NextJS fornece a página de erro(404, 500, ...) para erros que pode ser editável também.',
       seeMore: true,
       link: 'SSG',
     },
     {
       id: 3,
+      title: 'Custom Error Page',
+      description:
+        'Você pode criar página de erro customizadas no NextJS, criando utilizando na pasta pages, pages/500.tsx ou pages/404.tsx, como o exemplo abaixo.',
+      seeMore: true,
+      link: 'undefined',
+    },
+    {
+      id: 4,
       title: 'SEO - Search Engines Optimization',
       description:
         'Serve para seu site aparecer nos resultados de busca, o nextJS faz isso utilizando o next/head, que consiste basicamente em você coloca em cada página que você quer que tenha um SEO para ajudar a página a ser encontrada. Como demonstra no exemplo abaixo.',
       seeMore: true,
       link: 'SEO',
-    },
-    {
-      id: 4,
-      title: 'Custom Error Page',
-      description:
-        'Você pode criar página de erro customizadas no NextJS, criando utilizando na pasta pages, pages/500.tsx ou pages/404.tsx, como o exemplo abaixo.',
-      seeMore: true,
-      link: 'Name Page Link',
-    },
-    {
-      id: 5,
-      title: 'API Routes',
-      description:
-        'O NextJS trás uma solução para construir sua API dentro do próprio NextJS, que é basicamente criar sua api dentro de page/api/ e fazendo as requisições de lá, se você chamar de qualquer arquivo algo da pasta api já é natural do NextJS chamar as informações. Essa API não é recomendada para projetos grandes, apenas para projetos pequenos e não tem costume de ser usada, porém deixarei um pequeno exemplo aqui em baixo para fins de aprendizagem.',
-      seeMore: true,
-      link: 'apiRoutes',
-    },
-    {
-      id: 6,
-      title: 'Next/Auth',
-      description:
-        'O NextJS tem uma facilidade muito grande em fazer em poucos minutos uma autenticação utilizando Google, Facebook, Auth0, Apple... Utilizando o npm i next-auth, utilizando a API Routes do NextJS e seguindo o processo que está no exemplo abaixo',
-      seeMore: true,
-      link: '',
     },
     {
       id: 7,
@@ -81,79 +66,77 @@ const Home: NextPage = () => {
     },
     {
       id: 10,
-      title: 'SWR',
+      title: 'Otimização de fonte',
       description:
-        'É possível consumir data no lado do cliente(que é o padrão do React) usando o hook SWR, como demonstra no exemplo.',
+        'Por padrão, o NextJS automaticamente coloca inline fonte CSS quando está construindo a página. Você pode adicionar uma fonte em uma página específica no next/head, ou uma fonte global criando um custom component pages/_document.js e colocando lá. Como no exemplo abaixo.',
       seeMore: true,
-      link: 'Name Page Link',
+      link: 'fontOtimization',
     },
     {
       id: 11,
-      title: 'Otimização de fonte',
-      description: '',
+      title: 'Next/Link',
+      description:
+        'Transações do lado do cliente entre rotas podem ser acessadas utilizando import Link from next/link, <Link href"/exemplo"></Link> como utilizamos em todos exemplos desse projeto.',
+      seeMore: false,
+      link: '',
+    },
+    {
+      id: 12,
+      title: 'Next/Router',
+      description:
+        'Se você quiser acessar o objeto router dentro de uma função componente no seu app você pode usar o useRouter. Como no exemplo abaixo. Observação: é possível usar também o router.push quando o <Link></Link> não for suficiente.',
       seeMore: true,
       link: 'Name Page Link',
     },
     {
       id: 12,
-      title: 'Next/Router',
-      description: '',
-      seeMore: true,
-      link: 'Name Page Link',
+      title: 'Benefícios e Defeitos',
+      description:
+        'Benefícios e Defeitos: O NextJS tem muitos benefícios e é um upgrade enorme no ReactJS, trazendo otimização, velocidade e funcionalidades novas. Porém, apesar de todos os benefícios que o NextJS trás, o único defeito que eu acredito ainda existir é o aumento de preço do lado do cliente pela forma que os dados são tratados. Mas se colocarmos em um ponto de vista que velocidade na informação é uma forma de consumir mais,somado com tudo que o NextJS trás de otimização ao React podemos concluir que o NextJS é o próximo passo do React e vai estar cada vez mais comum trabalharmos em projetos com o mesmo.',
+      seeMore: false,
+      link: '',
     },
     {
       id: 13,
-      title: 'Next/Link',
-      description: '',
-      seeMore: true,
-      link: 'Name Page Link',
-    },
-    {
-      id: 14,
-      title: 'Next/AMP',
-      description: '',
-      seeMore: true,
-      link: 'Name Page Link',
-    },
-    {
-      id: 15,
-      title: 'Next/Server',
-      description: '',
-      seeMore: true,
-      link: 'Name Page Link',
+      title: 'Finalizações e considerações',
+      description:
+        'O objetivo desse projeto era mostrar as principais funcionalidades que usamos, tem outras que merecem o destaque principalmente a API Routes. Porém não utilizamos ainda pelas suas limitações, coloquei apenas as que achei considerei essenciais para o nosso trabalho. ',
+      seeMore: false,
+      link: '',
     },
   ];
 
   return (
-    <Fragment>
-      <Container>
-        {mainOpen ? (
-          <MainContainer>
-            <MainTitle onClick={() => setMainOpen(false)}>
-              - Principais Funcionalidades
-            </MainTitle>
-            {main &&
-              main.map((main) => {
-                return (
-                  <NextInfosMain
-                    key={main.id}
-                    title={main.title}
-                    description={main.description}
-                    seeMore={main.seeMore}
-                    link={main.link}
-                  />
-                );
-              })}
-          </MainContainer>
-        ) : (
-          <MainContainer>
-            <MainTitle onClick={() => setMainOpen(true)}>
-              + Principais Funcionalidades
-            </MainTitle>
-          </MainContainer>
-        )}
-      </Container>
-    </Fragment>
+    <Container>
+      <Head>
+        <title>Luby Software - NextJS How and Why</title>
+      </Head>
+      {mainOpen ? (
+        <MainContainer>
+          <MainTitle onClick={() => setMainOpen(false)}>
+            - Principais Funcionalidades
+          </MainTitle>
+          {main &&
+            main.map((main) => {
+              return (
+                <NextInfosMain
+                  key={main.id}
+                  title={main.title}
+                  description={main.description}
+                  seeMore={main.seeMore}
+                  link={main.link}
+                />
+              );
+            })}
+        </MainContainer>
+      ) : (
+        <MainContainer>
+          <MainTitle onClick={() => setMainOpen(true)}>
+            + Principais Funcionalidades
+          </MainTitle>
+        </MainContainer>
+      )}
+    </Container>
   );
 };
 
