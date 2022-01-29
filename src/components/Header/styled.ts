@@ -13,7 +13,7 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const Return = styled.div`
+export const Return = styled.a`
   color: #cac531;
   color: -webkit-linear-gradient(to right, #cac531, #f3f9a7);
   color: linear-gradient(to right, #cac531, #f3f9a7);

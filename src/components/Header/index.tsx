@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <Fragment>
       <Container>
-        <div>NextJS How and Why</div>
+        <div>NextJS - How and Why</div>
         <Return>
           {router.pathname === '/' ? null : (
             <Link href='/'>

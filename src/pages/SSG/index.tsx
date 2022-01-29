@@ -1,5 +1,5 @@
-import AllSongs from '../../components/AllSongs';
-import { playlist } from '../../data';
+import AllData from '../../components/AllData';
+import { information } from '../../data';
 import { MainTitle } from './styled';
 
 function SSG() {
@@ -14,13 +14,12 @@ function SSG() {
         necessário criar essa página(index.tsx) dentro da pages com todos os
         itens dentro para existir a [id].tsx.
       </MainTitle>
-      {playlist.map((playlist: any) => (
-        <AllSongs
-          key={playlist.id}
-          id={playlist.id}
-          name={playlist.name}
-          artist={playlist.artist}
-          albumCover={playlist.albumCover}
+      {information.map((props: any) => (
+        <AllData
+          key={props.id}
+          id={props.id}
+          name={props.name}
+          description={props.description}
         />
       ))}
     </div>

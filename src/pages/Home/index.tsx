@@ -7,27 +7,36 @@ import Head from 'next/head';
 const Home: NextPage = () => {
   const [mainOpen, setMainOpen] = useState(false);
   const [additionalOpen, setAdditionalOpen] = useState(false);
+  const [endOpen, setEndOpen] = useState(false);
 
   let main = [
     {
       id: 1,
       title: 'O que é o NextJS',
       description:
-        'É um framework do ReactJS para melhorar a perfomance e criar sites estáticos super rápidos, muitas vantagens para o usuário estão dentro do ecosistema do NexJS como a melhora em Performance, SEO, facilidade na experiência de desenvolvimento, suporte ao typescript, pré-renderização entre outros. No NexJS nos podemos trabalhar com duas formas de pré-renderização, server-side rendering(SSR) e static site generation(SSG)',
+        'É um framework do ReactJS para melhorar a perfomance e criar sites estáticos super rápidos, muitas vantagens para o usuário estão dentro do ecossistema do NexJS como a melhora em Performance, SEO, facilidade na experiência de desenvolvimento, suporte ao typescript, pré-renderização entre outros. No NexJS nos podemos trabalhar com duas formas de pré-renderização, server-side rendering(SSR) e static site generation(SSG)',
       seeMore: false,
       link: '',
     },
     {
-      id: 2,
-      title: 'Páginas no NextJS - SSG e SSR',
+      id: 1,
+      title: 'Como funcionam as rotas no NextJS',
       description:
-        'No NextJS todo arquivo dentro da pasta pages é associado a uma rota baseada no nome do arquivo /pages/NomedoArquivo, é instantaneamente NomedoArquivo o nome da página. Além disso o NextJS também suporta páginas com rotas dinâmicas, por exemplo se você criar uma página em pages/mypage/[id].tsx, ela vai ser acessível pelo mypage/1, mypage/2 e etc. Você pode usar outras variáveis, não necessariamente o id. Para fazer tal você precisa consumir um endpoint específico sua utilizando getStaticProps e getStaticPaths. Extra: Para fazer uma rota autenticada de usuário nos fazemos a autorização necessária para entrar ser na própria página e o NextJS fornece a página de erro(404, 500, ...) para erros que pode ser editável também.',
+        'No NextJS todo arquivo dentro da pasta pages é associado a uma rota baseada no nome do arquivo /pages/NomedoArquivo, é instantaneamente NomedoArquivo o nome da página. ',
+      seeMore: true,
+      link: 'Routes',
+    },
+    {
+      id: 2,
+      title: 'SSR e SSG',
+      description:
+        'O NextJS também suporta páginas com rotas dinâmicas, por exemplo se você criar uma página em pages/mypage/[id].tsx, ela vai ser acessível pelo mypage/1, mypage/2 e etc. Você pode usar outras variáveis, não necessariamente o id. Para fazer tal você precisa consumir um endpoint específico sua utilizando getStaticProps e getStaticPaths. Extra: Para fazer uma rota autenticada de usuário nos fazemos a autorização necessária para entrar ser na própria página e o NextJS fornece a página de erro(404, 500, ...) para erros que pode ser editável também.',
       seeMore: true,
       link: 'SSG',
     },
     {
       id: 3,
-      title: 'Autenticação no NextJS',
+      title: 'Autenticação de rotas',
       description: '',
       seeMore: true,
       link: 'Authentication',
@@ -100,15 +109,15 @@ const Home: NextPage = () => {
       id: 12,
       title: 'Benefícios e Defeitos',
       description:
-        'Benefícios e Defeitos: O NextJS tem muitos benefícios e é um upgrade enorme no ReactJS, trazendo otimização, velocidade e funcionalidades novas. Porém, apesar de todos os benefícios que o NextJS trás, o único defeito que eu acredito ainda existir é o aumento de preço do lado do cliente pela forma que os dados são tratados. Mas se colocarmos em um ponto de vista que velocidade na informação é uma forma de consumir mais,somado com tudo que o NextJS trás de otimização ao React podemos concluir que o NextJS é o próximo passo do React e vai estar cada vez mais comum trabalharmos em projetos com o mesmo.',
+        'O NextJS tem muitos benefícios e é um upgrade enorme no ReactJS, trazendo otimização, velocidade e novas funcionalidades. Porém, apesar de todos os benefícios que o NextJS trás, o único defeito que eu acredito ainda existir é o aumento de preço do lado do cliente pela forma que os dados são tratados. Mas se colocarmos em um ponto de vista que velocidade na informação é uma forma de consumir mais,somado com tudo que o NextJS trás de otimização ao React podemos concluir que o NextJS é um grande impulsionador do React e vai estar cada vez mais comum trabalharmos em projetos com o mesmo.',
       seeMore: false,
       link: '',
     },
     {
       id: 13,
-      title: 'Finalizações e considerações',
+      title: 'Finalização e considerações',
       description:
-        'O objetivo desse projeto era mostrar as principais funcionalidades que usamos, tem outras que merecem o destaque principalmente a API Routes. Porém não utilizamos ainda pelas suas limitações, coloquei apenas as que achei considerei essenciais para o nosso trabalho. ',
+        'O objetivo desse projeto é ensinar tudo que o NextJS',
       seeMore: false,
       link: '',
     },
@@ -160,10 +169,29 @@ const Home: NextPage = () => {
     },
   ];
 
+  let end = [
+    {
+      id: 12,
+      title: 'Benefícios e Defeitos',
+      description:
+        'Benefícios e Defeitos: O NextJS tem muitos benefícios e é um upgrade enorme no ReactJS, trazendo otimização, velocidade e funcionalidades novas. Porém, apesar de todos os benefícios que o NextJS trás, o único defeito que eu acredito ainda existir é o aumento de preço do lado do cliente pela forma que os dados são tratados. Mas se colocarmos em um ponto de vista que velocidade na informação é uma forma de consumir mais,somado com tudo que o NextJS trás de otimização ao React podemos concluir que o NextJS é benéfico em qualquer aplicação e vai estar cada vez mais comum trabalharmos em projetos com o mesmo.',
+      seeMore: false,
+      link: '',
+    },
+    {
+      id: 13,
+      title: 'Finalização e considerações',
+      description:
+        'O objetivo desse projeto era mostrar as principais funcionalidades que usamos, tem outras que merecem o destaque principalmente a API Routes. Porém não utilizamos ainda pelas suas limitações, coloquei apenas as que achei considerei essenciais para o nosso trabalho. ',
+      seeMore: false,
+      link: '',
+    },
+  ];  
+
   return (
     <Container>
       <Head>
-        <title>Luby Software - NextJS How and Why</title>
+        <title>NextJS - How and Why</title>
       </Head>
       {mainOpen ? (
         <MainContainer>
@@ -171,14 +199,14 @@ const Home: NextPage = () => {
             - Principais Funcionalidades
           </MainTitle>
           {main &&
-            main.map((main) => {
+            main.map((props) => {
               return (
                 <NextInfosMain
-                  key={main.id}
-                  title={main.title}
-                  description={main.description}
-                  seeMore={main.seeMore}
-                  link={main.link}
+                  key={props.id}
+                  title={props.title}
+                  description={props.description}
+                  seeMore={props.seeMore}
+                  link={props.link}
                 />
               );
             })}
@@ -190,21 +218,20 @@ const Home: NextPage = () => {
           </MainTitle>
         </MainContainer>
       )}
-
       {additionalOpen ? (
         <MainContainer>
           <MainTitle onClick={() => setAdditionalOpen(false)}>
             - Adicionais
           </MainTitle>
           {additional &&
-            additional.map((additional) => {
+            additional.map((props) => {
               return (
                 <NextInfosMain
-                  key={additional.id}
-                  title={additional.title}
-                  description={additional.description}
-                  seeMore={additional.seeMore}
-                  link={additional.link}
+                  key={props.id}
+                  title={props.title}
+                  description={props.description}
+                  seeMore={props.seeMore}
+                  link={props.link}
                 />
               );
             })}
@@ -216,6 +243,31 @@ const Home: NextPage = () => {
           </MainTitle>
         </MainContainer>
       )}
+      {endOpen ? (
+        <MainContainer>
+          <MainTitle onClick={() => setEndOpen(false)}>
+            - Finalizações
+          </MainTitle>
+          {end &&
+            end.map((props) => {
+              return (
+                <NextInfosMain
+                  key={props.id}
+                  title={props.title}
+                  description={props.description}
+                  seeMore={props.seeMore}
+                  link={props.link}
+                />
+              );
+            })}
+        </MainContainer>
+      ) : (
+        <MainContainer>
+          <MainTitle onClick={() => setEndOpen(true)}>
+            + Finalizações
+          </MainTitle>
+        </MainContainer>
+      )}      
     </Container>
   );
 };

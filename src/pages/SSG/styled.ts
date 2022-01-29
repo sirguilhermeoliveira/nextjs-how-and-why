@@ -8,13 +8,13 @@ export const Container = styled.div`
   margin-top: 40px;
 `;
 
-export const AlbumName = styled.div`
+export const Title = styled.div`
   font-size: 24px;
   font-style: italic;
 `;
 
-export const Artist = styled.div`
-  font-size: 24px;
+export const Description = styled.div`
+  font-size: 20px;
   font-style: italic;
 `;
 
@@ -23,6 +23,7 @@ export const HelperDescription = styled.div`
   color: black;
   font-size: 16px;
   margin: 20px;
+  max-width: 400px;
 `;
 
 export const MainTitle = styled.div`
