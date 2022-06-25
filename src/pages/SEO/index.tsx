@@ -1,11 +1,10 @@
 import type { NextPage } from 'next';
-import { Fragment } from 'react';
 import { Container, Text } from './styled';
 import Head from 'next/head';
 
 const SEO: NextPage = () => {
   return (
-    <Fragment>
+    <>
       <Container>
         <Head>
           <title>Título da página - SEO</title>
@@ -19,7 +18,7 @@ const SEO: NextPage = () => {
         </Text>
         <Text>[Colocar print do SEO]</Text>
       </Container>
-    </Fragment>
+    </>
   );
 };
 

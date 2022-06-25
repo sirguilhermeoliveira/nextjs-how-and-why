@@ -28,16 +28,24 @@ const Home: NextPage = () => {
     },
     {
       id: 2,
-      title: 'SSR e SSG',
+      title: 'SSR',
       description:
-        'O NextJS também suporta páginas com rotas dinâmicas, por exemplo se você criar uma página em pages/mypage/[id].tsx, ela vai ser acessível pelo mypage/1, mypage/2 e etc. Você pode usar outras variáveis, não necessariamente o id. Para fazer tal você precisa consumir um endpoint específico sua utilizando getStaticProps e getStaticPaths. Extra: Para fazer uma rota autenticada de usuário nos fazemos a autorização necessária para entrar ser na própria página e o NextJS fornece a página de erro(404, 500, ...) para erros que pode ser editável também.',
+        'O NextJS também suporta páginas com rotas dinâmicas, por exemplo se você criar uma página em pages/mypage/[id].tsx, ela vai ser acessível pelo mypage/1, mypage/2 e etc. Você pode usar outras variáveis, não necessariamente o id. Lá dentro você cria uma função de repetição de informação você puxa as informações do getserverSideProps que faz uma requisição http para pegar todas informações necessárias.',
+      seeMore: true,
+      link: '',
+    },
+    {
+      id: 2,
+      title: 'SSG',
+      description:
+        'Mesma dinâmica do SSR porém você só é usado com dados IMUTÁVEIS então utiliza getStaticProps ao invés de getServerSideProps.',
       seeMore: true,
       link: 'SSG',
     },
     {
       id: 3,
       title: 'Autenticação de rotas',
-      description: '',
+      description: 'A autenticação de rotas é diretamente na página no NextJS(já que ele as rotas são diretas na página pages)',
       seeMore: true,
       link: 'Authentication',
     },
@@ -53,7 +61,7 @@ const Home: NextPage = () => {
       id: 5,
       title: 'SEO - Search Engines Optimization',
       description:
-        'Serve para seu site aparecer nos resultados de busca, o nextJS faz isso utilizando o next/head, que consiste basicamente em você coloca em cada página que você quer que tenha um SEO para ajudar a página a ser encontrada. Como demonstra no exemplo abaixo.',
+        'Serve para seu site aparecer nos resultados de busca, o nextJS faz isso utilizando o next/head, que consiste basicamente em você coloca em cada página que você quer que tenha um SEO para ajudar a página a ser encontrada. O SSR e o SSG como transformam em HTML também ajudam em torno da página a tag <Html lang="pt-br"> também ajuda. Como demonstra no exemplo abaixo.',
       seeMore: true,
       link: 'SEO',
     },
